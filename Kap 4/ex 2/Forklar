@@ -1,0 +1,18 @@
+function setup() { 
+  createCanvas(600, 400);
+} 
+
+function draw() { 
+  background(220);
+  fill(255,0,0);//Laver alle figurer røde
+  noStroke();//Fjerne kanter på figurer
+  if (mouseX < width/3) {//hvis musen er i den første tredjedel af lærredet
+    rect(0, 0, width/3, height);//Laver en rektangel der fylder hele den første tredjedel af lærredet
+  }
+  else if (mouseX <= width*2/3) {//hvis musen er i den anden tredjedel af lærredet
+    rect(width/3, 0, width/3, height);//Laver en rektangel der fylder hele den anden tredjedel af lærredet
+  }
+  else {
+    rect(width*2/3, 0, width/3, height);//Laver en rektangel der fylder hele den sidste tredjedel af lærredet
+  }
+}
