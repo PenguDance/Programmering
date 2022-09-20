@@ -1,0 +1,12 @@
+function setup() {
+  createCanvas(400, 400);
+  while(i<100)//Kører en funktion så længe i er mindre end 100
+    {
+      let x=random(400)
+      let y=random(400)
+      let r = random(100) //laver en cirkel med tilfældig centrum og radius
+      circle(x,y,r)
+      text(i,x,y)//Skriver i-værdien i midten af cirklen
+      i=i+1//Gør i 1 større
+    }
+}
