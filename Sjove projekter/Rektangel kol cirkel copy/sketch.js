@@ -8,13 +8,16 @@ let ox;
 let oy;
 let od;
 let kol;
+let frx;
+let fdy;
 function setup() {
   createCanvas(windowWidth, windowHeight);
   fx = width / 4;
   fy = height / 4;
   fl = width / 6;
   fh = height / 8;
-
+  frx = fx + fl;
+  fdy = fy + fh;
   cd = width / 10;
   od = width / 5;
   or = od / 2;
@@ -32,40 +35,8 @@ function draw() {
   if (keyIsPressed == true) {
     move();
   }
-  if (ox <= fx) {
-    if (oy <= fy) {
-      if (fx < ox + or && fy < oy + or) {
-        kol = true;
-      } else {
-        kol = false;
-      }
-    } else {
-      if (fx < ox + or && fy + fh > oy - or) {
-        kol = true;
-      } else {
-        kol = false;
-      }
-    }
-  } else if (ox >= fx) {
-    if (oy <= fy) {
-      if (fx + fl > ox - or && fy < oy + or) {
-        kol = true;
-      } else {
-        kol = false;
-      }
-    } else {
-      if (fx + fl > ox - or && fy + fh > oy - or) {
-        kol = true;
-      } else {
-        kol = false;
-      }
-    }
-  }
-  if (kol == true) {
-    fill(0, 255, 0);
-  } else {
-    fill(255, 0, 0);
-  }
+  
+  koll();
 }
 function move() {
   if (keyIsDown(LEFT_ARROW)) {
@@ -85,3 +56,11 @@ function move() {
     fy++;
   }
 }
+function koll() {
+  if (kol == true) {
+    fill(0, 255, 0);
+  } else {
+    fill(255, 0, 0);
+  }
+}
+
