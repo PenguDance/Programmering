@@ -16,8 +16,6 @@ function setup() {
   fy = height / 4;
   fl = width / 6;
   fh = height / 8;
-  frx = fx + fl;
-  fdy = fy + fh;
   cd = width / 10;
   od = width / 5;
   or = od / 2;
@@ -31,11 +29,49 @@ function draw() {
   rect(fx, fy, fl, fh);
   fcx = fx + fl / 2;
   fcy = fy + fh / 2;
+  frx = fx + fl;
+  fdy = fy + fh;
   circle(ox, oy, od);
   if (keyIsPressed == true) {
     move();
   }
-  
+  if (ox < fx && ox + or > fx) {
+    if (oy < fy && oy + or > fy) {
+      if (or > sqrt((fx - ox) ** 2 + (fy - oy) ** 2)) {
+        kol = true;
+      } else {
+        kol = false;
+      }
+    } else if (oy > fdy && oy - or < fdy) {
+      if (or > sqrt((fx - ox) ** 2 + (fdy - oy) ** 2)) {
+        kol = true;
+      } else {
+        kol = false;
+      }
+    }
+  } else if (ox > frx && ox - or < frx) {
+    if (oy < fy && oy + or > fy) {
+      if (or > sqrt((frx - ox) ** 2 + (fy - oy) ** 2)) {
+        kol = true;
+      } else {
+        kol = false;
+      }
+    } else if (oy > fdy && oy - or < fdy) {
+      if (or > sqrt((frx - ox) ** 2 + (fdy - oy) ** 2)) {
+        kol = true;
+      } else {
+        kol = false;
+      }
+    } else {
+      kol = false;
+    }
+  } else if (fx < ox && ox < frx) {
+    if (fy < oy && oy < fdy) {
+      kol = false;
+    }
+  } else {
+    kol = false;
+  }
   koll();
 }
 function move() {
@@ -63,4 +99,3 @@ function koll() {
     fill(255, 0, 0);
   }
 }
-
