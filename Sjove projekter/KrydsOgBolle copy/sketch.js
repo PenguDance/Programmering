@@ -2,6 +2,7 @@ let i=0;
 let box=[];
 let valg=[];
 let playing;
+let t=0;
 function setup(){
   createCanvas(windowWidth,windowHeight);
   background(255);
@@ -18,9 +19,9 @@ function setup(){
   playing=true;
 }
 function mousePressed(){
-  if (playing==false){
+  if(playing==false){
     setup();
-  }
+  }else{
  //Box1
   if (mouseX>0&&mouseX<1/3*windowWidth&&mouseY>0&&mouseY<1/3*windowHeight){
     if (box[1]!=1){
@@ -176,6 +177,7 @@ valg[9]=3;
 }
 check();
 }
+}
 function check(){
 for(let k=1;k<10;k++){
   console.log(valg[k]);
@@ -229,4 +231,5 @@ if(valg[3]!=1&&valg[3]==valg[5]&&valg[3]==valg[7]){
 line(windowWidth,0,0,windowHeight);
 playing=false;
   }
-}
+ 
+  }
