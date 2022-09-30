@@ -179,10 +179,6 @@ check();
 }
 }
 function check(){
-for(let k=1;k<10;k++){
-  console.log(valg[k]);
-  console.log();
-}
  //Øverst vandret
  if(valg[1]!=1&&valg[1]==valg[2]&&valg[1]==valg[3]){
   strokeWeight(20);
