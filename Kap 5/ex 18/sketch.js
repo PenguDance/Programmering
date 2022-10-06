@@ -4,7 +4,7 @@ fjern = 0;
 let j = 0;
 function setup() {
   createCanvas(400, 400);
-  console.log(liste);
+  console.log("Start list = ", liste);
 }
 function draw() {
   if (liste.length > 0) {
@@ -16,7 +16,7 @@ function draw() {
     }
     for (let i = 0; i < liste.length; i++) {
       if (i == fjern) {
-        console.log(liste[i]);
+        console.log("Highest number = ", liste[i]);
         continue;
       }
       liste[j] = liste[i];
@@ -24,7 +24,7 @@ function draw() {
     }
     j = 0;
     liste.pop();
-    console.log(liste);
+    console.log("New list = ", liste);
     picked = 0;
   }
 }
